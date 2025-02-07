@@ -1,0 +1,19 @@
+name: pytorch
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  # Core scientific packages
+  - numpy
+  - pandas
+  - scipy
+  # Development tools
+  - jupyter
+  - ipython
+  # Add pip packages
+  - pip:
+    - requests
+    - python-dotenv
+    - torch
