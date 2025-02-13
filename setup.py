@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="moe",  # Replace with your project name
+    name="moe", 
     version="0.1",
     packages=find_packages(),
     install_requires=[
