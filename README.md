@@ -1,10 +1,10 @@
 # MoE (Mixture of Experts)
 
-A minimalPyTorch implementation of the Mixture of Experts (MoE) architecture for Large Language Models, based on DeepSeek's V3 MoE architecture.
+A minimal PyTorch implementation of the Mixture of Experts (MoE) architecture, based on DeepSeek's V3 MoE architecture.
 
 ## Overview
 
-This repository provides a PyTorch implementation of the Mixture of Experts (MoE) architecture. The implementation includes:
+This implementation includes:
 
 - Core MoE components (Expert networks and Gating mechanism)
 - Visualization tools for expert specialization
@@ -12,9 +12,9 @@ This repository provides a PyTorch implementation of the Mixture of Experts (MoE
 
 ## Architecture Details
 
-The implementation includes three main components:
+The architecture includes three main components:
 
-1. **Expert Networks**: Gated Linear Units (GLU) with SiLU activation
+1. **Expert Networks**: Shallow feed-forward networks
 2. **Gating Mechanism**: Top-k routing (no load balancing implemented)
 3. **Classifier Head**: PyTorch Lightning wrapper for classification tasks
 
