@@ -6,14 +6,15 @@ dependencies:
   - python=3.12
   - pip
   # Core scientific packages
-  - numpy
-  - pandas
-  - scipy
+  - numpy=1.26.4
+  - pandas=2.2.3
   # Development tools
-  - jupyter
+  - jupyter==1.1.1
   - ipython
+  - matplotlib=3.10.0
+  - scikit-learn=1.6.1
+  - lightning=2.5.0
+  - seaborn=0.13.2
   # Add pip packages
   - pip:
-    - requests
-    - python-dotenv
-    - torch
+    - torch=2.2.2
