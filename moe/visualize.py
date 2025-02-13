@@ -98,6 +98,16 @@ def plot_confusion_matrix(y_true, y_pred, ax=None, title='Confusion Matrix', cma
     
     return ax.collections[0]  # Return the mappable for colorbar compatibility
 
+def plot_expert_distribution(expert_assignments, ax=None, title='Expert Distribution'):
+    """Plot distribution of samples across experts."""
+    if ax is None:
+        fig, ax = plt.subplots()
+    
+    expert_counts = np.bincount(expert_assignments)
+    ax.bar(range(len(expert_counts)), expert_counts)
+    ax.set_title(title)
+    ax.set_xlabel('Expert ID')
+    ax.set_ylabel('Number of Assigned Samples')
 
 def create_visualization_grid(plots_config, figsize=(20, 15)):
     """
@@ -169,7 +179,7 @@ def training_visualization(X, y_true, y_hat_pre, y_hat_post, figsize=(12,5)):
     ]
     return create_visualization_grid(plots_config, figsize=figsize)
 
-def expert_visualization(X, y_true, y_hat, pre_assignments, post_assignments, n_experts):
+def expert_visualization(X, y_true, pre_assignments, post_assignments, n_experts):
     """Creates a comprehensive visualization combining all plot types."""
     plots_config = [
         {
@@ -214,9 +224,12 @@ def expert_visualization(X, y_true, y_hat, pre_assignments, post_assignments, n_
             }
         },
         {
-            'plot_func': plot_pattern_distribution,
+            'plot_func': plot_expert_distribution,
             'grid_pos': (0, 2),
-            'kwargs': {'labels': y_true}
+            'kwargs': {
+                'expert_assignments': post_assignments,
+                'title': 'Expert Distribution (Post-training)'
+            }
         }
     ]
     
